@@ -42,6 +42,7 @@ module.exports = {
     "import/prefer-default-export": 0,
     "no-confusing-arrow": 0,
     "semi": 0,
+    "react/prop-types": 0,
     "prettier/prettier": ["error", {
       "singleQuote": true,
       "trailingComma": "all",

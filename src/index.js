@@ -1,19 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ThemeProvider } from 'styled-components';
+import { StoreProvider, useStoreState } from 'easy-peasy';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import { store } from './store';
+import theme from './utils/theme';
+import initNavigation from './screens';
 
-export default function App() {
+console.disableYellowBox = true;
+
+const App = () => {
+  const isLoggedIn = false;
+  // const isLoggedIn = useStoreState(state => state.isLoggedIn.value);
+
+  const Navigation = initNavigation({
+    isLoggedIn,
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <StoreProvider store={store}>
+      <ThemeProvider theme={theme}>
+        <Navigation />
+      </ThemeProvider>
+    </StoreProvider>
   );
-}
+};
+
+export default App;
