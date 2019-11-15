@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "lint": "eslint --fix --ext .jsx,.js src/**.js src/**/**.js"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
@@ -26,7 +27,15 @@
     "yup": "^0.27.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^7.1.0"
+    "babel-eslint": "^10.0.3",
+    "babel-preset-expo": "^7.1.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-expo": "^6.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "prettier": "^1.19.1"
   },
   "private": true
 }
