@@ -33,7 +33,3 @@ Web
 ```
 yarn web
 ```
-
-## Info
-
-iOS bundle: `com.execcomm.app`
