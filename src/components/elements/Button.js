@@ -3,10 +3,10 @@ import { Platform } from 'react-native';
 import styled from 'styled-components/native';
 
 import theme, { boxShadow } from '../../utils/theme';
-// import ButtonPressAnimation from './ButtonPressAnimation';
+import ButtonPressAnimation from './ButtonPressAnimation';
 import Text from './Text';
 
-const Container = styled.TouchableOpacity`
+const Container = styled(ButtonPressAnimation)`
   background-color: ${(props) => props.bgColor};
   border-radius: 4;
   margin-horizontal: 13;

@@ -3,7 +3,7 @@ import { compact } from 'lodash';
 import PropTypes from 'prop-types';
 import { Animated, TouchableOpacity } from 'react-native';
 import { State, TapGestureHandler } from 'react-native-gesture-handler';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+// import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import animations from '../../utils/animations';
 
 const ButtonKeyframes = animations.keyframes.button;
@@ -135,9 +135,9 @@ export default class ButtonPressAnimation extends PureComponent {
     // Start animations
     Animated.parallel(animationsArray).start();
 
-    if (enableHapticFeedback && state === State.ACTIVE) {
-      ReactNativeHapticFeedback.trigger('selection');
-    }
+    // if (enableHapticFeedback && state === State.ACTIVE) {
+    //   ReactNativeHapticFeedback.trigger('selection');
+    // }
 
     if (isActive) {
       this.initPos = { absoluteX, absoluteY };

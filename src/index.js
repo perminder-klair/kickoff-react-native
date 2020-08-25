@@ -15,6 +15,7 @@ console.disableYellowBox = true;
 
 const AppInner = () => {
   const isLoggedIn = useStoreState((state) => state.user.isLoggedIn);
+  console.log('isLoggedIn', isLoggedIn);
 
   return <Navigation isLoggedIn={isLoggedIn} />;
 };

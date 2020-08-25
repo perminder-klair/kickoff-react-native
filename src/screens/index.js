@@ -65,8 +65,8 @@ const tabBarOptions = {
   inactiveTintColor: theme.textColorLite,
   style: {
     backgroundColor: theme.primaryColor,
-    paddingTop: Platform.OS === 'ios' ? 0 : 22,
-    paddingBottom: Platform.OS === 'ios' ? 0 : 10,
+    paddingTop: 10,
+    paddingBottom: 30,
     boxShadow: 'none',
     borderTop: 0,
   },

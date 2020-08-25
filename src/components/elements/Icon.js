@@ -1,6 +1,6 @@
 import React from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
-const Icon = (props) => <Ionicons {...props} />;
+const Icon = (props) => <MaterialIcons {...props} />;
 
 export default Icon;
