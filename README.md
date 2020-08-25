@@ -3,10 +3,8 @@
 ## Requirements
 
 - NodeJs
-- Yarn
+- Npm / Yarn
 - Expo
-- XCode (iOS)
-- Android Studio (Android)
 
 ## Setup
 
