@@ -8,7 +8,7 @@ import Loading from './Loading';
 import EmptyState from './EmptyState';
 import TextInput from './TextInput';
 import Modal from './Modal';
-import ButtonPressAnimation from './ButtonPressAnimation';
+// import ButtonPressAnimation from './ButtonPressAnimation';
 import Avatar from './Avatar';
 import InputGroup from './InputGroup';
 import Label from './Label';
@@ -25,7 +25,7 @@ export {
   EmptyState,
   TextInput,
   Modal,
-  ButtonPressAnimation,
+  // ButtonPressAnimation,
   Avatar,
   InputGroup,
   Label,

@@ -30,7 +30,7 @@ const AppMain = () => {
       'Raleway-Bold': require('./assets/fonts/Raleway-Bold.ttf'),
       'Raleway-Italic': require('./assets/fonts/Raleway-Italic.ttf'),
     });
-    setFontLoaded(true);
+    setTimeout(() => setFontLoaded(true), 400);
   };
 
   useEffect(() => {

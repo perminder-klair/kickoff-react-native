@@ -1,6 +1,6 @@
+import React, { PureComponent } from 'react';
 import { compact } from 'lodash';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
 import { Animated, TouchableOpacity } from 'react-native';
 import { State, TapGestureHandler } from 'react-native-gesture-handler';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';

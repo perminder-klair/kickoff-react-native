@@ -6,7 +6,7 @@ import { Text } from 'react-native';
 import theme from '../../utils/theme';
 
 const Container = styled(Text)`
-  font-size: ${(props) => props.fontSize};
+  font-size: ${(props) => `${props.fontSize}px`};
   color: ${(props) =>
     props.lite ? props.theme.textColorLite : props.theme.textColor};
   font-family: ${(props) => props.fontFamily};

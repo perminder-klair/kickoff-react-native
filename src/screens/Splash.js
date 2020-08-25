@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { Text } from 'react-native';
-import { Image } from '../components/elements';
+// import { Image } from '../components/elements';
 
 const Container = styled.View`
   flex: 1;
@@ -10,9 +10,9 @@ const Container = styled.View`
   background-color: #000000;
 `;
 
-const LogoImage = styled(Image)`
-  align-self: center;
-`;
+// const LogoImage = styled(Image)`
+//   align-self: center;
+// `;
 
 const Slogan = styled(Text)`
   color: #ffffff;

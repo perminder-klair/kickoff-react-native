@@ -16,7 +16,7 @@ const theme = {
   fontFamily: 'Raleway',
   fontSizeExtraSmall: 12,
   fontSizeSmall: 14,
-  fontSize: 15,
+  fontSize: 16,
   fontSizeMedium: 18,
   fontSizeLarge: 28,
   fontSizeExtraLarge: 32,
