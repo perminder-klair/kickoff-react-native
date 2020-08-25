@@ -88,9 +88,9 @@ function MainStackScreen() {
   );
 }
 
-const AppStack = createStackNavigator();
-function App({ isLoggedIn, isAnonymous }) {
-  // console.log('app', isLoggedIn, isAnonymous);
+const ScreensStack = createStackNavigator();
+function ScreensStackMain({ isLoggedIn }) {
+  // console.log('app', isLoggedIn);
   let app = MainStackScreen;
   if (!isLoggedIn) {
     app = LoginStackScreen;
@@ -98,13 +98,13 @@ function App({ isLoggedIn, isAnonymous }) {
 
   return (
     <NavigationContainer>
-      <AppStack.Navigator headerMode="none">
-        {/* <AppStack.Screen name="Test" component={Test} /> */}
-        <AppStack.Screen name="Splash" component={Splash} />
-        <AppStack.Screen name="App" component={app} />
-      </AppStack.Navigator>
+      <ScreensStack.Navigator headerMode="none">
+        {/* <ScreensStack.Screen name="Test" component={Test} /> */}
+        <ScreensStack.Screen name="Splash" component={Splash} />
+        <ScreensStack.Screen name="App" component={app} />
+      </ScreensStack.Navigator>
     </NavigationContainer>
   );
 }
 
-export default App;
+export default ScreensStackMain;

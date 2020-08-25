@@ -8,8 +8,7 @@ import * as Font from 'expo-font';
 
 import { store, persistor } from './store';
 import theme from './utils/theme';
-import initNavigation from './screens';
-import { Loading } from './components/elements';
+import Navigation from './screens';
 import Splash from './screens/Splash';
 
 console.disableYellowBox = true;
@@ -17,14 +16,10 @@ console.disableYellowBox = true;
 const AppInner = () => {
   const isLoggedIn = useStoreState((state) => state.user.isLoggedIn);
 
-  const Navigation = initNavigation({
-    isLoggedIn,
-  });
-
-  return <Navigation />;
+  return <Navigation isLoggedIn={isLoggedIn} />;
 };
 
-const App = () => {
+const AppMain = () => {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   const loadFonts = async () => {
@@ -46,11 +41,11 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <PersistGate loading={<Splash />} persistor={persistor}>
         <StoreProvider store={store}>
-          <>{fontLoaded ? <AppInner /> : <Loading />}</>
+          <>{fontLoaded ? <AppInner /> : <Splash />}</>
         </StoreProvider>
       </PersistGate>
     </ThemeProvider>
   );
 };
 
-export default App;
+export default AppMain;
