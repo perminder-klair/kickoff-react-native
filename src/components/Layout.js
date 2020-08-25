@@ -5,13 +5,13 @@ import styled from 'styled-components/native';
 const Container = styled.View`
   flex: 1;
   flex-direction: column;
-  background-color: ${props => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 const TopBar = styled.View`
-  height: ${props => (props.hasTopNav ? 0 : 0)};
+  height: ${(props) => (props.hasTopNav ? 10 : 0)};
 `;
 
-const Layout = props => {
+const Layout = (props) => {
   const { hasTopNav, children } = props;
 
   return (
@@ -23,7 +23,7 @@ const Layout = props => {
 };
 
 Layout.defaultProps = {
-  hasTopNav: true,
+  hasTopNav: false,
 };
 
 Layout.propTypes = {

@@ -11,7 +11,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { Text } from './Text';
+import Text from './Text';
 
 const styles = StyleSheet.create({
   modal: {
@@ -32,24 +32,24 @@ const borderRadius = 8;
 
 const Container = styled.View`
   flex: 1;
-  background-color: ${props => props.theme.backgroundColor};
-  border-top-right-radius: ${props => (!props.hasHeader ? borderRadius : 0)};
-  border-top-left-radius: ${props => (!props.hasHeader ? borderRadius : 0)};
-  border-bottom-right-radius: ${props => (props.lite ? borderRadius : 0)};
-  border-bottom-left-radius: ${props => (props.lite ? borderRadius : 0)};
+  background-color: ${(props) => props.theme.backgroundColor};
+  border-top-right-radius: ${(props) => (!props.hasHeader ? borderRadius : 0)};
+  border-top-left-radius: ${(props) => (!props.hasHeader ? borderRadius : 0)};
+  border-bottom-right-radius: ${(props) => (props.lite ? borderRadius : 0)};
+  border-bottom-left-radius: ${(props) => (props.lite ? borderRadius : 0)};
   padding-bottom: 60;
 `;
 
 const Top = styled.View`
   flex-direction: row;
   align-items: center;
-  background-color: ${props => props.theme.backgroundColor};
-  padding-top: ${props =>
+  background-color: ${(props) => props.theme.backgroundColor};
+  padding-top: ${(props) =>
     !props.lite ? (Platform.OS === 'ios' ? 50 : 10) : 15};
   padding-bottom: 15;
   padding-left: 15;
-  border-top-right-radius: ${props => (props.lite ? borderRadius : 0)};
-  border-top-left-radius: ${props => (props.lite ? borderRadius : 0)};
+  border-top-right-radius: ${(props) => (props.lite ? borderRadius : 0)};
+  border-top-left-radius: ${(props) => (props.lite ? borderRadius : 0)};
 `;
 
 const Title = styled.View`
@@ -61,7 +61,7 @@ const Title = styled.View`
 
 const TitleText = styled(Text)`
   margin-left: -10;
-  font-size: ${props => props.theme.fontSizeMedium};
+  font-size: ${(props) => props.theme.fontSizeMedium};
 `;
 
 class MyModal extends React.Component {
@@ -77,7 +77,7 @@ class MyModal extends React.Component {
     AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
-  handleAppStateChange = nextAppState => {
+  handleAppStateChange = (nextAppState) => {
     const { disableAutoHide } = this.props;
 
     // bug fixed, close modal when app goes to backgroind
@@ -111,7 +111,7 @@ class MyModal extends React.Component {
               <Text>X</Text>
             </TouchableOpacity>
             <Title>
-              <TitleText semibold>{title}</TitleText>
+              <TitleText semiBold>{title}</TitleText>
             </Title>
           </Top>
         )}

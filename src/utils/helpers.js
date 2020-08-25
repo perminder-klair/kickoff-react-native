@@ -1,7 +1,8 @@
 // Usage: await timeout(3000);
-export const timeout = ms => new Promise(resolve => setTimeout(resolve, ms));
+export const timeout = (ms) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
 
-export const makeid = length => {
+export const makeid = (length) => {
   let result = '';
   const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

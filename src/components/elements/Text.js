@@ -6,30 +6,20 @@ import { Text } from 'react-native';
 import theme from '../../utils/theme';
 
 const Container = styled(Text)`
-  font-size: ${props => props.fontSize};
-  color: ${props =>
+  font-size: ${(props) => props.fontSize};
+  color: ${(props) =>
     props.lite ? props.theme.textColorLite : props.theme.textColor};
-  font-family: ${props => props.fontFamily};
+  font-family: ${(props) => props.fontFamily};
 `;
 
-const MyText = props => {
-  const {
-    style,
-    children,
-    primary,
-    light,
-    semibold,
-    bold,
-    extrabold,
-    size,
-    ...other
-  } = props;
+const MyText = (props) => {
+  const { style, children, light, semiBold, bold, size, ...other } = props;
 
   let { fontFamily, fontSize } = theme;
 
   if (light) {
     fontFamily = `${fontFamily}-Light`;
-  } else if (semibold) {
+  } else if (semiBold) {
     fontFamily = `${fontFamily}-Medium`;
   } else if (bold) {
     fontFamily = `${fontFamily}-Bold`;
@@ -72,9 +62,9 @@ MyText.propTypes = {
   style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   primary: PropTypes.bool,
   light: PropTypes.bool,
-  semibold: PropTypes.bool,
+  semiBold: PropTypes.bool,
   bold: PropTypes.bool,
-  extrabold: PropTypes.bool,
+  extraBold: PropTypes.bool,
   children: PropTypes.node,
   size: PropTypes.string,
 };

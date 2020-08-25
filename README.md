@@ -33,3 +33,14 @@ Web
 ```
 yarn web
 ```
+
+## Build
+
+```
+expo build:android
+expo build:android -t app-bundle
+or
+expo build:android -t apk
+
+expo build:ios
+```

@@ -25,12 +25,12 @@ class SplashScreen extends React.Component {
     const data = await this.performTimeConsumingTask();
 
     if (this.props.navigation && data !== null) {
-      this.props.navigation.navigate('App');
+      this.props.navigation.replace('App');
     }
   }
 
   performTimeConsumingTask = async () =>
-    new Promise(resolve =>
+    new Promise((resolve) =>
       setTimeout(() => {
         resolve('result');
       }, 1000),

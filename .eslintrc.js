@@ -7,8 +7,8 @@ module.exports = {
   parser: 'babel-eslint',
   plugins: ['prettier', 'react'],
   extends: [
-    'plugin:prettier/recommended',
     'eslint:recommended',
+    'plugin:prettier/recommended',
     'plugin:react/recommended',
     'airbnb-base',
     'expo',

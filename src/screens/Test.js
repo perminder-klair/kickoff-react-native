@@ -8,14 +8,12 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const Test = () => {
-  return (
-    <Layout>
-      <Container>
-        <Text>This is Test page</Text>
-      </Container>
-    </Layout>
-  );
-};
+const Test = () => (
+  <Layout>
+    <Container>
+      <Text>This is Test page</Text>
+    </Container>
+  </Layout>
+);
 
 export default Test;

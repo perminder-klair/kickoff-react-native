@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import Label from './Label';
 
 const Container = styled.View`
-  width: ${props => (props.width ? props.width : '100%')};
+  width: ${(props) => (props.width ? props.width : '100%')};
   margin-bottom: 20;
 `;
 

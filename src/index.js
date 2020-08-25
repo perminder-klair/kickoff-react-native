@@ -15,7 +15,7 @@ import Splash from './screens/Splash';
 console.disableYellowBox = true;
 
 const AppInner = () => {
-  const isLoggedIn = useStoreState(state => state.user.isLoggedIn);
+  const isLoggedIn = useStoreState((state) => state.user.isLoggedIn);
 
   const Navigation = initNavigation({
     isLoggedIn,

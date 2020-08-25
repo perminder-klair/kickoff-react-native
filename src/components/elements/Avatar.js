@@ -6,14 +6,14 @@ import Image from './Image';
 import dummyAvatar from '../../assets/images/avatar.jpg';
 
 const Container = styled.View`
-  height: ${props => props.size};
-  width: ${props => props.size};
+  height: ${(props) => props.size};
+  width: ${(props) => props.size};
   overflow: hidden;
   background-color: grey;
-  border-radius: ${props => props.size / 2};
+  border-radius: ${(props) => props.size / 2};
   align-items: center;
-  border-width: ${props => props.borderWidth};
-  border-color: ${props => props.theme.borderColor};
+  border-width: ${(props) => props.borderWidth};
+  border-color: ${(props) => props.theme.borderColor};
 `;
 
 const Avatar = ({ size, source, borderWidth }) => (

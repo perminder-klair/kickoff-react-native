@@ -9,6 +9,7 @@ const theme = {
   primaryColor: '#72C4FF',
   secondaryColor: '#54EA97',
   borderColor: '#F5F5F5',
+  backgroundColor: '#FFFFFF',
   textColor: '#1D2025',
   textColorLite: '#638391',
   dangerColor: '#FF8181',
@@ -24,7 +25,6 @@ const theme = {
   shadowOpacity: 0.25,
   shadowRadius: 1,
   activeButtonOpacity: 0.8,
-  backgroundColor: '#FFFFFF',
 };
 
 export default theme;

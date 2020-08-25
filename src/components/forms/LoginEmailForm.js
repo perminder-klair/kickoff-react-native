@@ -19,10 +19,10 @@ const ButtonStyled = styled(Button)`
   border-radius: 4;
 `;
 const ButtonText = styled(Text)`
-  color: ${props => props.theme.lightShades};
+  color: ${(props) => props.theme.lightShades};
 `;
 
-const LoginEmailForm = props => {
+const LoginEmailForm = (props) => {
   const {
     values,
     handleSubmit,
@@ -35,11 +35,11 @@ const LoginEmailForm = props => {
   return (
     <Container>
       <LabelWrapper>
-        <Text semibold>Enter email address to proceed</Text>
+        <Text semiBold>Enter email address to proceed</Text>
       </LabelWrapper>
       <TextInputWithIcon
         placeholder="Email"
-        onChangeText={email => setFieldValue('email', email)}
+        onChangeText={(email) => setFieldValue('email', email)}
         value={values.email}
         textContentType="emailAddress"
         keyboardType="email-address"

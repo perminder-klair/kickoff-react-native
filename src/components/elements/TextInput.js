@@ -16,18 +16,18 @@ export const boxShadow = Platform.select({
 });
 
 const Container = styled.View`
-  width: ${props => (props.width ? props.width : '100%')};
+  width: ${(props) => (props.width ? props.width : '100%')};
 `;
 
 const Input = styled.TextInput`
   background-color: #ffffff;
   border-radius: 4;
-  border-color: ${props => props.theme.borderColor};
+  border-color: ${(props) => props.theme.borderColor};
   border-width: 2;
   padding-vertical: 12;
   padding-horizontal: 18;
-  color: ${props => props.theme.textColor};
-  font-size: ${props => props.theme.fontSize};
+  color: ${(props) => props.theme.textColor};
+  font-size: ${(props) => props.theme.fontSize};
 `;
 
 const ErrorText = styled(Text)`

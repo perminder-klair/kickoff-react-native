@@ -8,16 +8,12 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const Login = () => (
+const Account = () => (
   <Layout>
     <Container>
-      <Text>This is Login page</Text>
+      <Text>This is Account page</Text>
     </Container>
   </Layout>
 );
 
-Login.navigationOptions = {
-  header: null,
-};
-
-export default Login;
+export default Account;

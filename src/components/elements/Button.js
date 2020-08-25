@@ -7,24 +7,24 @@ import ButtonPressAnimation from './ButtonPressAnimation';
 import Text from './Text';
 
 const Container = styled(ButtonPressAnimation)`
-  background-color: ${props => props.bgColor};
+  background-color: ${(props) => props.bgColor};
   border-radius: 4;
   margin-horizontal: 13;
   border-width: 0;
-  opacity: ${props => (props.isLoading || props.disabled ? 0.75 : 1)};
+  opacity: ${(props) => (props.isLoading || props.disabled ? 0.75 : 1)};
   width: 100%;
 `;
 
 const ContainerInner = styled.View`
   align-content: center;
   align-items: center;
-  padding-top: ${props => props.paddingTop};
-  padding-bottom: ${props => props.paddingBottom};
+  padding-top: ${(props) => props.paddingTop};
+  padding-bottom: ${(props) => props.paddingBottom};
 `;
 
 const TextStyled = styled(Text)`
-  color: ${props => props.theme.lightShades};
-  font-size: ${props => props.fontSize};
+  color: ${(props) => props.theme.lightShades};
+  font-size: ${(props) => props.fontSize};
 `;
 
 const MyButton = ({
@@ -36,7 +36,6 @@ const MyButton = ({
   noAnimation,
   primary,
   secondary,
-  secondayAlt,
   title,
   small,
   ...other
@@ -47,8 +46,6 @@ const MyButton = ({
   let paddingBottom = Platform.OS === 'ios' ? 12 : 10;
   if (secondary) {
     bgColor = theme.darkShades;
-  } else if (secondayAlt) {
-    bgColor = '#2e2435';
   }
 
   if (small) {

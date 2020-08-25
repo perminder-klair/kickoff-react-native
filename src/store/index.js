@@ -8,7 +8,7 @@ import config from '../utils/config';
 const store = createStore(schema, {
   name: config.projectKey,
   devTools: true,
-  reducerEnhancer: reducer =>
+  reducerEnhancer: (reducer) =>
     persistReducer(
       {
         key: config.projectKey,
@@ -19,5 +19,6 @@ const store = createStore(schema, {
 });
 
 const persistor = persistStore(store);
+// persistor.purge(); // to clear store
 
 export { store, persistor };

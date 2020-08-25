@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import theme from '../../utils/theme';
 import Text from './Text';
+import Icon from './Icon';
 
 const Container = styled.View`
-  background-color: ${props => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.backgroundColor};
   flex: 1;
   align-items: center;
   justify-content: center;
@@ -20,14 +20,14 @@ const Title = styled(Text)`
   text-align: center;
 `;
 const Details = styled(Text)`
-  color: ${props => props.theme.textColorLite};
+  color: ${(props) => props.theme.textColorLite};
   text-align: center;
   padding-horizontal: 30;
 `;
 
 const Error = ({ title, details }) => (
   <Container>
-    <MaterialIcons name="error" size={54} color={theme.textColor} />
+    <Icon name="error" size={54} color={theme.textColor} />
     <Title bold>{title}</Title>
     <Details>{details}</Details>
   </Container>
