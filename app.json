@@ -3,7 +3,7 @@
     "name": "kickoff-react-native",
     "slug": "kickoff-react-native",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
+    "sdkVersion": "41.0.0",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
