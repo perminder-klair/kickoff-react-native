@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components/native';
 import { useStoreActions } from 'easy-peasy';
 
-import { Text, Button } from '../components/elements';
+import { Button } from '../components/elements';
 import Layout from '../components/Layout';
+// import LoginEmailForm from '../components/forms/LoginEmailForm';
 
 const Container = styled.View`
   flex: 1;
@@ -20,7 +21,7 @@ const Login = () => {
   return (
     <Layout>
       <Container>
-        <Text>This is Login page</Text>
+        {/* <LoginEmailForm /> */}
         <Button title="Login" onPress={() => setIsLoggedIn(true)} />
       </Container>
     </Layout>

@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import { StatusBar } from 'expo-status-bar';
 
-const Container = styled.View`
+const Container = styled.SafeAreaView`
   flex: 1;
   flex-direction: column;
   background-color: ${(props) => props.theme.backgroundColor};
-`;
-const TopBar = styled.View`
-  height: ${(props) => (props.hasTopNav ? 10 : 0)};
 `;
 
 const Layout = (props) => {
@@ -16,7 +14,7 @@ const Layout = (props) => {
 
   return (
     <Container>
-      <TopBar hasTopNav={hasTopNav} />
+      <StatusBar style="auto" />
       {children}
     </Container>
   );

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components/native';
 import { Text } from 'react-native';
 // import { Image } from '../components/elements';
+
+import { timeout } from '../utils/helpers';
 
 const Container = styled.View`
   flex: 1;
@@ -18,32 +20,24 @@ const Slogan = styled(Text)`
   color: #ffffff;
 `;
 
-class SplashScreen extends React.Component {
-  async componentDidMount() {
-    // Preload data from an external API
-    // Preload data using AsyncStorage
-    const data = await this.performTimeConsumingTask();
+const SplashScreen = ({ navigation }) => {
+  useEffect(() => {
+    const init = async () => {
+      const data = await timeout(1000);
 
-    if (this.props.navigation && data !== null) {
-      this.props.navigation.replace('App');
-    }
-  }
+      if (navigation && data !== null) {
+        navigation.replace('App');
+      }
+    };
 
-  performTimeConsumingTask = async () =>
-    new Promise((resolve) =>
-      setTimeout(() => {
-        resolve('result');
-      }, 1000),
-    );
-
-  render() {
-    return (
-      <Container>
-        {/* <LogoImage source={logoImg} width={200} /> */}
-        <Slogan>Loading...</Slogan>
-      </Container>
-    );
-  }
-}
+    init();
+  }, []);
+  return (
+    <Container>
+      {/* <LogoImage source={logoImg} width={200} /> */}
+      <Slogan>Loading...</Slogan>
+    </Container>
+  );
+};
 
 export default SplashScreen;

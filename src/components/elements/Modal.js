@@ -1,32 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import Modal from 'react-native-modal';
 import {
-  StyleSheet,
   Platform,
   TouchableOpacity,
   AppState,
   BackHandler,
   ScrollView,
+  Modal,
 } from 'react-native';
 
 import Text from './Text';
-
-const styles = StyleSheet.create({
-  modal: {
-    marginTop: 0,
-    marginBottom: 0,
-    marginLeft: 0,
-    marginRight: 0,
-  },
-  modalLite: {
-    marginTop: 70,
-    marginBottom: 70,
-    marginLeft: 15,
-    marginRight: 15,
-  },
-});
 
 const borderRadius = 8;
 
@@ -64,73 +48,65 @@ const TitleText = styled(Text)`
   font-size: ${(props) => props.theme.fontSizeMedium};
 `;
 
-class MyModal extends React.Component {
-  componentDidMount() {
-    AppState.addEventListener('change', this.handleAppStateChange);
+const MyModal = ({
+  onRequestClose,
+  children,
+  isVisible,
+  title,
+  hasHeader,
+  lite,
+  disableAutoHide,
+}) => {
+  useEffect(() => {
+    const handleAppStateChange = (nextAppState) => {
+      // bug fixed, close modal when app goes to background
+      if (nextAppState === 'background' && !disableAutoHide) {
+        onRequestClose();
+      }
+    };
+
+    AppState.addEventListener('change', handleAppStateChange);
 
     BackHandler.addEventListener('hardwareBackPress', () => {
-      this.props.onRequestClose();
+      onRequestClose();
     });
-  }
 
-  componentWillUnmount() {
-    AppState.removeEventListener('change', this.handleAppStateChange);
-  }
+    () => {
+      AppState.remove('change', handleAppStateChange);
+    };
+  }, []);
 
-  handleAppStateChange = (nextAppState) => {
-    const { disableAutoHide } = this.props;
-
-    // bug fixed, close modal when app goes to backgroind
-    if (nextAppState === 'background' && !disableAutoHide) {
-      this.props.onRequestClose();
-    }
-  };
-
-  render() {
-    const {
-      onRequestClose,
-      children,
-      isVisible,
-      title,
-      hasHeader,
-      lite,
-    } = this.props;
-
-    return (
-      <Modal
-        isVisible={isVisible}
-        animationIn="slideInDown"
-        animationOut="slideOutUp"
-        onBackButtonPress={onRequestClose}
-        onBackdropPress={onRequestClose}
-        style={!lite ? styles.modal : styles.modalLite}
+  return (
+    <Modal
+      transparent={true}
+      visible={isVisible}
+      onRequestClose={onRequestClose}
+    >
+      {hasHeader && (
+        <Top lite={lite}>
+          <TouchableOpacity onPress={onRequestClose}>
+            <Text>X</Text>
+          </TouchableOpacity>
+          <Title>
+            <TitleText semiBold>{title}</TitleText>
+          </Title>
+        </Top>
+      )}
+      <ScrollView
+        keyboardShouldPersistTaps="always"
+        contentContainerStyle={{
+          backgroundColor: '#fff',
+          borderBottomRightRadius: lite ? borderRadius : 0,
+          borderBottomLeftRadius: lite ? borderRadius : 0,
+        }}
       >
-        {hasHeader && (
-          <Top lite={lite}>
-            <TouchableOpacity onPress={onRequestClose}>
-              <Text>X</Text>
-            </TouchableOpacity>
-            <Title>
-              <TitleText semiBold>{title}</TitleText>
-            </Title>
-          </Top>
-        )}
-        <ScrollView
-          keyboardShouldPersistTaps="always"
-          contentContainerStyle={{
-            backgroundColor: '#fff',
-            borderBottomRightRadius: lite ? borderRadius : 0,
-            borderBottomLeftRadius: lite ? borderRadius : 0,
-          }}
-        >
-          <Container lite={lite} hasHeader={hasHeader}>
-            {children}
-          </Container>
-        </ScrollView>
-      </Modal>
-    );
-  }
-}
+        <Container lite={lite} hasHeader={hasHeader}>
+          {children}
+        </Container>
+      </ScrollView>
+    </Modal>
+  );
+};
 
 MyModal.defaultProps = {
   title: '',

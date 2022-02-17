@@ -1,11 +1,9 @@
 {
   "expo": {
-    "name": "kickoff-react-native",
-    "slug": "kickoff-react-native",
-    "privacy": "public",
-    "sdkVersion": "41.0.0",
-    "platforms": ["ios", "android", "web"],
+    "name": "my-project",
+    "slug": "my-project",
     "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {

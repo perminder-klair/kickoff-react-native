@@ -5,13 +5,15 @@ import { StoreProvider, useStoreState } from 'easy-peasy';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ThemeProvider } from 'styled-components/native';
 import * as Font from 'expo-font';
+import { LogBox } from 'react-native';
 
 import { store, persistor } from './store';
 import theme from './utils/theme';
 import Navigation from './screens';
 import Splash from './screens/Splash';
 
-console.disableYellowBox = true;
+// LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs(); // Ignore all log notifications
 
 const AppInner = () => {
   const isLoggedIn = useStoreState((state) => state.user.isLoggedIn);
