@@ -11,8 +11,8 @@ const Container = styled.TouchableOpacity`
   border-width: 0;
   opacity: ${(props) => (props.isLoading || props.disabled ? 0.75 : 1)};
   width: 100%;
-  padding-vertical: ${(props) => (props.isSmall  ? "5px" : "10px")};
-  padding-horizontal: ${(props) => (props.isSmall ? "5px" : "10px")};
+  padding-vertical: ${(props) => (props.isSmall ? '5px' : '10px')};
+  padding-horizontal: ${(props) => (props.isSmall ? '5px' : '10px')};
 `;
 
 const TextStyled = styled(Text)`
@@ -34,7 +34,7 @@ const MyButton = ({
   if (secondary) {
     bgColor = theme.darkShades;
   }
-const fontSize = small ? theme.fontSizeExtraSmall : theme.fontSize;
+  const fontSize = small ? theme.fontSizeExtraSmall : theme.fontSize;
 
   return (
     <Container
@@ -45,13 +45,13 @@ const fontSize = small ? theme.fontSizeExtraSmall : theme.fontSize;
       onPress={onPress}
       isSmall={small}
     >
-        {title ? (
-          <TextStyled bold fontSize={fontSize}>
-            {isLoading ? "Loading..." : title}
-          </TextStyled>
-        ) : (
-          children
-        )}
+      {title ? (
+        <TextStyled bold fontSize={fontSize}>
+          {isLoading ? 'Loading...' : title}
+        </TextStyled>
+      ) : (
+        children
+      )}
     </Container>
   );
 };

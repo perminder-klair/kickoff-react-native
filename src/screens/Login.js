@@ -1,14 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { useStoreActions } from 'easy-peasy';
-import {
-  KeyboardAvoidingView,
-  Keyboard,
-  TouchableWithoutFeedback,
-} from 'react-native';
 
 import Layout from '../components/Layout';
 import LoginEmailForm from '../components/forms/LoginEmailForm';
+import { KeyboardAvoiding } from '../components/elements';
 
 const Container = styled.View`
   margin-horizontal: 40px;
@@ -23,16 +19,11 @@ const Login = () => {
 
   return (
     <Layout>
-      <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={{flex:1, background:"red"}}
-      >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <Container>
-        <LoginEmailForm handleSubmit={() => setIsLoggedIn(true)}/>
-      </Container>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+      <KeyboardAvoiding>
+        <Container>
+          <LoginEmailForm handleSubmit={() => setIsLoggedIn(true)} />
+        </Container>
+      </KeyboardAvoiding>
     </Layout>
   );
 };

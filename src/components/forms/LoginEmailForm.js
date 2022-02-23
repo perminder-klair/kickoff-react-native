@@ -19,40 +19,33 @@ const ButtonStyled = styled(Button)`
 `;
 
 const LoginEmailForm = (props) => {
-  const {
-    values,
-    handleSubmit,
-    isSubmitting,
-    setFieldValue,
-    errors,
-  } = props;
+  const { values, handleSubmit, isSubmitting, setFieldValue, errors } = props;
 
   return (
-      <Container>
-          <LabelWrapper>
-            <Text semiBold>Enter email address to proceed</Text>
-          </LabelWrapper>
-          <TextInputGroup
-            placeholder="Email"
-            onChangeText={(email) => setFieldValue('email', email)}
-            value={values.email}
-            textContentType="emailAddress"
-            keyboardType="email-address"
-            returnKeyType="next"
-            name="email"
-            error={errors.email}
-            autoCapitalize="none"
-            autoCorrect={false}
-            autoFocus={false}
-          />
-          <ButtonStyled
-            onPress={handleSubmit}
-            disabled={isSubmitting}
-            isLoading={isSubmitting}
-            title="Send Verification Code ✉️"
-          >
-          </ButtonStyled>
-      </Container>
+    <Container>
+      <LabelWrapper>
+        <Text semiBold>Enter email address to proceed</Text>
+      </LabelWrapper>
+      <TextInputGroup
+        placeholder="Email"
+        onChangeText={(email) => setFieldValue('email', email)}
+        value={values.email}
+        textContentType="emailAddress"
+        keyboardType="email-address"
+        returnKeyType="next"
+        name="email"
+        error={errors.email}
+        autoCapitalize="none"
+        autoCorrect={false}
+        autoFocus={false}
+      />
+      <ButtonStyled
+        onPress={handleSubmit}
+        disabled={isSubmitting}
+        isLoading={isSubmitting}
+        title="Send Verification Code ✉️"
+      ></ButtonStyled>
+    </Container>
   );
 };
 
