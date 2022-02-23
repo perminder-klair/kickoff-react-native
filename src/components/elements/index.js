@@ -4,10 +4,9 @@ import Button from './Button';
 import Error from './Error';
 import Loading from './Loading';
 import EmptyState from './EmptyState';
-import TextInput from './TextInput';
+import TextInputGroup from './TextInputGroup';
 import Modal from './Modal';
 import Avatar from './Avatar';
-import InputGroup from './InputGroup';
 import Label from './Label';
 import Icon from './Icon';
 
@@ -18,10 +17,9 @@ export {
   Error,
   Loading,
   EmptyState,
-  TextInput,
+  TextInputGroup,
   Modal,
   Avatar,
-  InputGroup,
   Label,
   Icon,
 };

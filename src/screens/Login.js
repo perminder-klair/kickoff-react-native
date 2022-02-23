@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { useStoreActions } from 'easy-peasy';
+import {
+  KeyboardAvoidingView,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
-import { Button } from '../components/elements';
 import Layout from '../components/Layout';
-// import LoginEmailForm from '../components/forms/LoginEmailForm';
+import LoginEmailForm from '../components/forms/LoginEmailForm';
 
 const Container = styled.View`
+  margin-horizontal: 40px;
   flex: 1;
   justify-content: center;
-  align-items: center;
-  margin-horizontal: 50px;
 `;
 
 const Login = () => {
@@ -20,11 +23,16 @@ const Login = () => {
 
   return (
     <Layout>
+      <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{flex:1, background:"red"}}
+      >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <Container>
-        {/* <LoginEmailForm /> */}
-        <Button title="Login" onPress={() => setIsLoggedIn(true)} />
-        {/* <Loading /> */}
+        <LoginEmailForm handleSubmit={() => setIsLoggedIn(true)}/>
       </Container>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
     </Layout>
   );
 };

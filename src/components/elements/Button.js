@@ -47,7 +47,7 @@ const fontSize = small ? theme.fontSizeExtraSmall : theme.fontSize;
     >
         {title ? (
           <TextStyled bold fontSize={fontSize}>
-            {title}
+            {isLoading ? "Loading..." : title}
           </TextStyled>
         ) : (
           children

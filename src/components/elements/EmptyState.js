@@ -13,16 +13,16 @@ const Container = styled.View`
   justify-content: center;
 `;
 const Title = styled(Text)`
-  margin-top: 20;
-  margin-bottom: 20;
-  font-size: 26;
-  padding-horizontal: 30;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 26px;
+  padding-horizontal: 30px;
   text-align: center;
 `;
 const Details = styled(Text)`
   color: ${(props) => props.theme.textColorLite};
   text-align: center;
-  padding-horizontal: 30;
+  padding-horizontal: 30px;
 `;
 
 const EmptyState = ({ icon, title, details }) => (

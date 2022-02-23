@@ -4,11 +4,11 @@ import styled from 'styled-components/native';
 import Text from './Text';
 
 const Container = styled(Text)`
-  margin-bottom: 5;
+  margin-bottom: 5px;
 `;
 
 const Label = ({ children }) => (
-  <Container lite size="small">
+  <Container >
     {children}
   </Container>
 );

@@ -2,29 +2,20 @@ import React from 'react';
 import { withFormik } from 'formik';
 import * as yup from 'yup';
 import styled from 'styled-components/native';
-import {
-  KeyboardAvoidingView,
-  Keyboard,
-  TouchableWithoutFeedback,
-} from 'react-native';
 
-import { Button, Text, TextInputWithIcon } from '../elements';
+import { Button, Text, TextInputGroup } from '../elements';
 
 const Container = styled.View``;
 
 const LabelWrapper = styled.View`
-  margin-top: 30;
-  margin-left: 15;
-  margin-right: 15;
-  margin-bottom: 10;
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 10px;
 `;
 
 const ButtonStyled = styled(Button)`
-  margin-top: 15;
-  border-radius: 4;
-`;
-const ButtonText = styled(Text)`
-  color: ${(props) => props.theme.lightShades};
+  margin-top: 15px;
 `;
 
 const LoginEmailForm = (props) => {
@@ -33,20 +24,15 @@ const LoginEmailForm = (props) => {
     handleSubmit,
     isSubmitting,
     setFieldValue,
-    isLoading,
     errors,
   } = props;
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <Container>
+      <Container>
           <LabelWrapper>
             <Text semiBold>Enter email address to proceed</Text>
           </LabelWrapper>
-          <TextInputWithIcon
+          <TextInputGroup
             placeholder="Email"
             onChangeText={(email) => setFieldValue('email', email)}
             value={values.email}
@@ -54,22 +40,19 @@ const LoginEmailForm = (props) => {
             keyboardType="email-address"
             returnKeyType="next"
             name="email"
-            iconColor="#737891"
-            lite
+            error={errors.email}
             autoCapitalize="none"
             autoCorrect={false}
-            autoFocus={true}
+            autoFocus={false}
           />
           <ButtonStyled
             onPress={handleSubmit}
-            disabled={isSubmitting || errors.email}
-            isLoading={isSubmitting || isLoading}
+            disabled={isSubmitting}
+            isLoading={isSubmitting}
+            title="Send Verification Code ✉️"
           >
-            <ButtonText>Send Verification Code ✉️</ButtonText>
           </ButtonStyled>
-        </Container>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+      </Container>
   );
 };
 

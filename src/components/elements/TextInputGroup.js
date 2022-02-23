@@ -4,16 +4,7 @@ import styled from 'styled-components/native';
 import { Platform } from 'react-native';
 
 import Text from './Text';
-
-export const boxShadow = Platform.select({
-  ios: {
-    shadowColor: '#000',
-    shadowRadius: 1,
-  },
-  android: {
-    elevation: 1,
-  },
-});
+import Label from './Label';
 
 const Container = styled.View`
   width: ${(props) => (props.width ? props.width : '100%')};
@@ -21,24 +12,24 @@ const Container = styled.View`
 
 const Input = styled.TextInput`
   background-color: #ffffff;
-  border-radius: 4;
+  border-radius: 4px;
   border-color: ${(props) => props.theme.borderColor};
-  border-width: 2;
-  padding-vertical: 12;
-  padding-horizontal: 18;
+  border-width: 1.5px;
+  padding-vertical: 12px;
+  padding-horizontal: 18px;
   color: ${(props) => props.theme.textColor};
-  font-size: ${(props) => props.theme.fontSize};
+  font-size: ${(props) => `${props.theme.fontSize}px}`};
 `;
 
 const ErrorText = styled(Text)`
-  margin-left: 15;
-  margin-right: 15;
-  font-size: 11;
+  margin-top: 3px;
+  font-size: 11px;
   color: #e60533;
 `;
 
-const TextInput = ({ error, isLoading, width, ...props }) => (
-  <Container style={boxShadow} width={width}>
+const TextInput = ({ label, error, isLoading, width, ...props }) => (
+  <Container width={width}>
+    {label && <Label>{label}</Label>}
     <Input
       underlineColorAndroid="transparent"
       placeholderTextColor={'#9EA1A7'}
