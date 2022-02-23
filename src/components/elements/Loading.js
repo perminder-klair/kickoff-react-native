@@ -1,7 +1,7 @@
 import React from 'react';
 import Spinner from 'react-native-loading-spinner-overlay';
 import styled from 'styled-components/native';
-import { WaveIndicator } from 'react-native-indicators';
+import { BarIndicator } from 'react-native-indicators';
 
 import theme from '../../utils/theme';
 
@@ -14,7 +14,7 @@ const Loading = ({ visible = true }) => (
     <Spinner
       visible={true}
       animation="fade"
-      customIndicator={<WaveIndicator color={theme.primaryColor} size={120} />}
+      customIndicator={<BarIndicator color={theme.primaryColor} size={60} />}
     />
   </Container>
 );

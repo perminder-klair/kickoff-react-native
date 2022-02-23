@@ -23,6 +23,7 @@ const Login = () => {
       <Container>
         {/* <LoginEmailForm /> */}
         <Button title="Login" onPress={() => setIsLoggedIn(true)} />
+        {/* <Loading /> */}
       </Container>
     </Layout>
   );
