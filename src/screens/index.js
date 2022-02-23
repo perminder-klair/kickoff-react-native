@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
+// import { Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,7 +10,7 @@ import Splash from './Splash';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import Account from './Account';
-import Test from './Test';
+// import Test from './Test';
 
 const navigationOptions = ({ icon }) => {
   const options = {};
@@ -36,7 +36,7 @@ function LoginStackScreen() {
 const HomeStack = createStackNavigator();
 function HomeStackScreen() {
   return (
-    <HomeStack.Navigator mode="modal">
+    <HomeStack.Navigator >
       <HomeStack.Screen
         name="Dashboard"
         component={Dashboard}
@@ -51,7 +51,7 @@ function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator>
       <ProfileStack.Screen
-        name="Account"
+        name="Profile"
         component={Account}
         options={{ headerShown: false }}
       />
@@ -60,20 +60,23 @@ function ProfileStackScreen() {
 }
 
 const MainStack = createBottomTabNavigator();
-const tabBarOptions = {
-  activeTintColor: theme.textColor,
-  inactiveTintColor: theme.textColorLite,
-  style: {
+const screenOptions = {
+  tabBarActiveTintColor: theme.textColor,
+  tabBarInactiveTintColor: theme.textColorLite,
+  presentation :"modal",
+  headerShown: false,
+  tabBarStyle: {
     backgroundColor: theme.primaryColor,
-    paddingTop: 10,
-    paddingBottom: 30,
     boxShadow: 'none',
     borderTop: 0,
+    paddingBottom: 5,
+    height:52,
   },
+
 };
 function MainStackScreen() {
   return (
-    <MainStack.Navigator tabBarOptions={tabBarOptions}>
+    <MainStack.Navigator screenOptions={screenOptions}>
       <MainStack.Screen
         name="Home"
         component={HomeStackScreen}
@@ -98,7 +101,7 @@ function ScreensStackMain({ isLoggedIn }) {
 
   return (
     <NavigationContainer>
-      <ScreensStack.Navigator headerMode="none">
+      <ScreensStack.Navigator headerShown={false}>
         {/* <ScreensStack.Screen name="Test" component={Test} /> */}
         <ScreensStack.Screen name="Splash" component={Splash} />
         <ScreensStack.Screen name="App" component={app} />

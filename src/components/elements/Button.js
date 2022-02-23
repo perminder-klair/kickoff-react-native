@@ -7,23 +7,17 @@ import Text from './Text';
 
 const Container = styled.TouchableOpacity`
   background-color: ${(props) => props.bgColor};
-  border-radius: 4;
-  margin-horizontal: 13;
+  border-radius: 4px;
   border-width: 0;
   opacity: ${(props) => (props.isLoading || props.disabled ? 0.75 : 1)};
   width: 100%;
-`;
-
-const ContainerInner = styled.View`
-  align-content: center;
-  align-items: center;
-  padding-top: ${(props) => props.paddingTop};
-  padding-bottom: ${(props) => props.paddingBottom};
+  padding-vertical: ${(props) => (props.isSmall  ? "5px" : "10px")};
+  padding-horizontal: ${(props) => (props.isSmall ? "5px" : "10px")};
 `;
 
 const TextStyled = styled(Text)`
+  text-align: center;
   color: ${(props) => props.theme.lightShades};
-  font-size: ${(props) => props.fontSize};
 `;
 
 const MyButton = ({
@@ -32,49 +26,32 @@ const MyButton = ({
   onPress,
   disabled,
   isLoading,
-  noAnimation,
-  primary,
   secondary,
   title,
   small,
-  ...other
 }) => {
   let bgColor = theme.primaryColor;
-  let { fontSize } = theme;
-  let paddingTop = Platform.OS === 'ios' ? 10 : 10;
-  let paddingBottom = Platform.OS === 'ios' ? 12 : 10;
   if (secondary) {
     bgColor = theme.darkShades;
   }
-
-  if (small) {
-    fontSize = 13;
-    paddingTop = 5;
-    paddingBottom = 5;
-  }
+const fontSize = small ? theme.fontSizeExtraSmall : theme.fontSize;
 
   return (
     <Container
       style={[style, boxShadow]}
       disabled={disabled || isLoading}
       isLoading={isLoading}
-      noAnimation={noAnimation}
       bgColor={bgColor}
       onPress={onPress}
+      isSmall={small}
     >
-      <ContainerInner
-        paddingTop={paddingTop}
-        paddingBottom={paddingBottom}
-        {...other}
-      >
         {title ? (
-          <TextStyled fontSize={fontSize} bold>
+          <TextStyled bold fontSize={fontSize}>
             {title}
           </TextStyled>
         ) : (
           children
         )}
-      </ContainerInner>
     </Container>
   );
 };

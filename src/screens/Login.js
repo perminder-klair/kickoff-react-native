@@ -10,7 +10,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  margin-horizontal: 50;
+  margin-horizontal: 50px;
 `;
 
 const Login = () => {
