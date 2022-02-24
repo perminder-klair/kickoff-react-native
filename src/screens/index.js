@@ -69,8 +69,9 @@ const screenOptions = {
     backgroundColor: theme.primaryColor,
     boxShadow: 'none',
     borderTop: 0,
-    paddingBottom: 5,
-    height:52,
+    paddingBottom: 6,
+    paddingTop: 5,
+    height:50,
   },
 
 };
