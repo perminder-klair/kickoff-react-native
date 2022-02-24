@@ -9,7 +9,7 @@
     "android": "expo start --android",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint --fix --ext .jsx,.js src/**.js src/**/**.js"
+    "lint": "eslint --fix --ext .jsx,.js src/components/* src/screens/* src/store/* src/utils/*"
   },
   "husky": {
     "hooks": {
@@ -45,13 +45,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/eslint-parser": "^7.17.0",
     "babel-eslint": "^10.1.0",
     "babel-preset-expo": "~9.0.2",
     "cross-env": "^7.0.3",
     "eslint": "^8.9.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-expo": "^6.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "husky": "^7.0.4",

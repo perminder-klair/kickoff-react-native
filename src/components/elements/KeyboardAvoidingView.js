@@ -3,6 +3,7 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   TouchableWithoutFeedback,
+  Platform,
 } from 'react-native';
 
 const KeyboardAvoiding = ({ children }) => (

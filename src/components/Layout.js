@@ -10,7 +10,7 @@ const Container = styled.SafeAreaView`
 `;
 
 const Layout = (props) => {
-  const { hasTopNav, children } = props;
+  const { children } = props;
 
   return (
     <Container>
@@ -20,12 +20,7 @@ const Layout = (props) => {
   );
 };
 
-Layout.defaultProps = {
-  hasTopNav: false,
-};
-
 Layout.propTypes = {
-  hasTopNav: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };
 

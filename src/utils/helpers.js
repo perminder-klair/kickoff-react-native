@@ -1,5 +1,8 @@
+/* eslint-disable no-plusplus */
+
 // Usage: await timeout(3000);
 export const timeout = (ms) =>
+  // eslint-disable-next-line no-promise-executor-return
   new Promise((resolve) => setTimeout(resolve, ms));
 
 export const makeid = (length) => {

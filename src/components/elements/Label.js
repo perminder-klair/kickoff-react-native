@@ -7,10 +7,6 @@ const Container = styled(Text)`
   margin-bottom: 5px;
 `;
 
-const Label = ({ children }) => (
-  <Container >
-    {children}
-  </Container>
-);
+const Label = ({ children }) => <Container>{children}</Container>;
 
 export default Label;

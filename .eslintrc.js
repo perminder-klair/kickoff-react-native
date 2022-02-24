@@ -9,14 +9,14 @@ module.exports = {
     node: true,
     es6: true,
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   plugins: ['prettier', 'react'],
   extends: [
     'eslint:recommended',
+    'plugin:import/recommended',
     'plugin:prettier/recommended',
     'plugin:react/recommended',
     'airbnb-base',
-    'expo',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -53,7 +53,6 @@ module.exports = {
         singleQuote: true,
         trailingComma: 'all',
         bracketSpacing: true,
-        jsxBracketSameLine: false,
         parser: 'flow',
       },
     ],

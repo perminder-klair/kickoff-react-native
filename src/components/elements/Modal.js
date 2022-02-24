@@ -29,6 +29,7 @@ const Top = styled.View`
   align-items: center;
   background-color: ${(props) => props.theme.backgroundColor};
   padding-top: ${(props) =>
+    // eslint-disable-next-line no-nested-ternary
     !props.lite ? (Platform.OS === 'ios' ? 50 : 10) : 15};
   padding-bottom: 15;
   padding-left: 15;
@@ -71,7 +72,7 @@ const MyModal = ({
       onRequestClose();
     });
 
-    () => {
+    return function cleanup() {
       AppState.remove('change', handleAppStateChange);
     };
   }, []);

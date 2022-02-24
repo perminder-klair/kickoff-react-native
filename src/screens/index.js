@@ -36,7 +36,7 @@ function LoginStackScreen() {
 const HomeStack = createStackNavigator();
 function HomeStackScreen() {
   return (
-    <HomeStack.Navigator >
+    <HomeStack.Navigator>
       <HomeStack.Screen
         name="Dashboard"
         component={Dashboard}
@@ -63,7 +63,7 @@ const MainStack = createBottomTabNavigator();
 const screenOptions = {
   tabBarActiveTintColor: theme.textColor,
   tabBarInactiveTintColor: theme.textColorLite,
-  presentation :"modal",
+  presentation: 'modal',
   headerShown: false,
   tabBarStyle: {
     backgroundColor: theme.primaryColor,
@@ -71,9 +71,8 @@ const screenOptions = {
     borderTop: 0,
     paddingBottom: 6,
     paddingTop: 5,
-    height:50,
+    height: 50,
   },
-
 };
 function MainStackScreen() {
   return (

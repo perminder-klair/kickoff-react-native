@@ -12,7 +12,7 @@ const Container = styled.View`
 const Loading = ({ visible = true }) => (
   <Container>
     <Spinner
-      visible={true}
+      visible={visible}
       animation="fade"
       customIndicator={<BarIndicator color={theme.primaryColor} size={60} />}
     />
