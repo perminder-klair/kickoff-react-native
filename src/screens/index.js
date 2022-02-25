@@ -40,7 +40,7 @@ function HomeStackScreen() {
       <HomeStack.Screen
         name="Dashboard"
         component={Dashboard}
-        options={{ headerShown: false }}
+        // options={{ headerShown: false }}
       />
     </HomeStack.Navigator>
   );
@@ -53,7 +53,7 @@ function ProfileStackScreen() {
       <ProfileStack.Screen
         name="Profile"
         component={Account}
-        options={{ headerShown: false }}
+        // options={{ headerShown: false }}
       />
     </ProfileStack.Navigator>
   );
@@ -101,10 +101,18 @@ function ScreensStackMain({ isLoggedIn }) {
 
   return (
     <NavigationContainer>
-      <ScreensStack.Navigator headerShown={false}>
+      <ScreensStack.Navigator>
         {/* <ScreensStack.Screen name="Test" component={Test} /> */}
-        <ScreensStack.Screen name="Splash" component={Splash} />
-        <ScreensStack.Screen name="App" component={app} />
+        <ScreensStack.Screen
+          options={{ headerShown: false }}
+          name="Splash"
+          component={Splash}
+        />
+        <ScreensStack.Screen
+          options={{ headerShown: false }}
+          name="App"
+          component={app}
+        />
       </ScreensStack.Navigator>
     </NavigationContainer>
   );

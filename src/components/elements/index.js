@@ -1,7 +1,9 @@
 import Text from './Text';
 import Image from './Image';
 import Button from './Button';
+import Container from './Container';
 import Error from './Error';
+import FlatList from './FlatList';
 import KeyboardAvoiding from './KeyboardAvoidingView';
 import Loading from './Loading';
 import EmptyState from './EmptyState';
@@ -15,7 +17,9 @@ export {
   Text,
   Image,
   Button,
+  Container,
   Error,
+  FlatList,
   KeyboardAvoiding,
   Loading,
   EmptyState,
