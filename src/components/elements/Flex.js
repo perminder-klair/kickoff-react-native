@@ -4,18 +4,19 @@ import PropTypes from 'prop-types';
 
 const Column = styled.View`
   flex-direction: row;
+  justify-content: ${(props) => props.justifyContent};
+  align-items: ${(props) => props.alignItems};
 `;
 
 const Container = ({ children }) => <Column>{children}</Column>;
 
+Container.defaultProps = {
+  justifyContent: 'flex-start',
+  alignItems: 'flex-start',
+};
+
 Container.propTypes = {
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  primary: PropTypes.bool,
-  light: PropTypes.bool,
-  semiBold: PropTypes.bool,
-  bold: PropTypes.bool,
-  extraBold: PropTypes.bool,
-  children: PropTypes.node,
-  size: PropTypes.string,
+  justifyContent: PropTypes.string,
+  alignItems: PropTypes.string,
 };
 export default Container;
