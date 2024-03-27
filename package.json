@@ -4,5 +4,9 @@
   "description": "React Native Template",
   "repository": "git@bitbucket.org:builtbypixel/react-native-boilerplate.git",
   "author": "Parminder Klair <parminder@builtbypixel.com>",
-  "license": "MIT"
+  "files": [
+    "template",
+    "template.config.js",
+    "script.js"
+  ]
 }
