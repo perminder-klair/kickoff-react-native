@@ -36,7 +36,7 @@ export const apolloPersistor = new CachePersistor({
   storage: cacheStorage,
   debug: true,
   maxSize: false,
-  key: 'esd-apollo-data',
+  key: 'app-apollo-data',
   trigger: 'write',
 });
 
