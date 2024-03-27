@@ -4,9 +4,13 @@
   "description": "React Native Template",
   "repository": "git@bitbucket.org:builtbypixel/react-native-boilerplate.git",
   "author": "Parminder Klair <parminder@builtbypixel.com>",
+  "main": "template.config.js",
   "files": [
     "template",
     "template.config.js",
     "script.js"
-  ]
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }

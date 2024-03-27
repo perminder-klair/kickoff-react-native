@@ -7,5 +7,5 @@ This is a boilerplate for React Native projects.
 Initialize a new project with this boilerplate by running:
 
 ```bash
-npx react-native init SomeApp --template https://parminder-klair@bitbucket.org/builtbypixel/react-native-boilerplate.git
+npx react-native init MyApp --template git@bitbucket.org:builtbypixel/react-native-boilerplate.git
 ```

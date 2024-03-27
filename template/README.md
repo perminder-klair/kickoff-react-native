@@ -7,7 +7,9 @@
 To get started, clone the repository and install the dependencies:
 
 ```bash
-npm install
+bundle install # you need to run this only once in your project.
+bundle exec pod install # Install Cocoapods
+npm install # Install node modules
 ```
 
 ## Step 1: Start the Metro Server
