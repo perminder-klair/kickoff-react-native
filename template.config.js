@@ -1,10 +1,10 @@
 module.exports = {
   // Placeholder used to rename and replace in files
   // package.json, index.json, android/, ios/
-  placeholderName: 'MyApp',
+  placeholderName: 'dkc',
 
   // Placeholder title that will be replaced in values.xml and Info.plist with title provided by the user.
-  // titlePlaceholder: 'Custom React Native Template',
+  titlePlaceholder: 'dkc',
 
   // Directory with template
   templateDir: './template',
