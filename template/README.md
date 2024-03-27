@@ -62,5 +62,4 @@ watchman watch-del-all
 
 ## TODO
 
-- [ ] Image slider
-- [ ] skeleton loading
+-

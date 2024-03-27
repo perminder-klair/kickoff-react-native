@@ -4,8 +4,9 @@ import { ApolloProvider } from '@apollo/client';
 import { NavigationContainer } from '@react-navigation/native';
 import Navigation from '@navigation';
 import NetInfo, { type NetInfoState } from '@react-native-community/netinfo';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { GluestackUIProvider, Text } from '@gluestack-ui/themed';
+import { GluestackUIProvider } from '@gluestack-ui/themed';
 
 import useCachedResources from '@hooks/useCachedResources';
 import { queueLink } from '@utils/apollo-client';
@@ -47,8 +48,10 @@ function App() {
 
 export default function Root() {
   return (
-    <GluestackUIProvider config={styles}>
-      <App />
-    </GluestackUIProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <GluestackUIProvider config={styles}>
+        <App />
+      </GluestackUIProvider>
+    </GestureHandlerRootView>
   );
 }
