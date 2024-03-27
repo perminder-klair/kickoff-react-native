@@ -12,6 +12,13 @@ bundle exec pod install # Install Cocoapods
 npm install # Install node modules
 ```
 
+or
+
+```bash
+npm install # Install node modules
+cd ios && pod install && cd .. # Install Cocoapods
+```
+
 ## Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.

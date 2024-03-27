@@ -29,7 +29,7 @@ export const useStore = create<State & Actions>()(
       setUser: (data: object) => set({ user: data }),
     }),
     {
-      name: 'dkc',
+      name: 'app-store',
       storage: createJSONStorage(() => AsyncStorage),
     },
   ),

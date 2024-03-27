@@ -2,7 +2,6 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import AccountScreen from '../../screens/AccountScreen';
-// import NotificationsScreen from '../screens/NotificationsScreen';
 import stackNavigatorOptions from '../stackNavigatorOptions';
 import { AccountStackParams } from '../types';
 
@@ -18,11 +17,9 @@ const AccountNavigator = () => (
       name="AccountScreen"
       component={AccountScreen}
       options={{
-        // add navigation options here...
         title: 'Account',
       }}
     />
-    <Stack.Screen name="NotificationsScreen" component={AccountScreen} />
   </Stack.Navigator>
 );
 

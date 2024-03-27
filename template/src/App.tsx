@@ -48,6 +48,7 @@ function App() {
 
 export default function Root() {
   return (
+    // eslint-disable-next-line react-native/no-inline-styles
     <GestureHandlerRootView style={{ flex: 1 }}>
       <GluestackUIProvider config={styles}>
         <App />
