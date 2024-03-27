@@ -70,6 +70,8 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
     'no-underscore-dangle': 0,
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/ban-ts-comment': 0,
   },
   settings: {
     'import/resolver': {

@@ -6,7 +6,7 @@ type config = {
 };
 
 const config: config = {
-  appName: 'my-app',
+  appName: 'My App',
   graphqlUri: process.env.GRAPHQL_API || 'http://localhost:4000/graphql',
   isDev: process.env.NODE_ENV === 'development',
   env: process.env.NODE_ENV || 'development',

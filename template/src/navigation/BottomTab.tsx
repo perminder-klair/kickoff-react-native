@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/Feather';
 
 import AccountNavigator from './stacks/AccountNavigator';
 import HomeNavigator from './stacks/HomeNavigator';
@@ -12,7 +13,6 @@ const BottomTabNavigator = () => {
     <BottomTab.Navigator
       initialRouteName="HomeTab"
       screenOptions={{
-        tabBarShowLabel: false,
         headerShown: false,
       }}
     >
@@ -22,6 +22,9 @@ const BottomTabNavigator = () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         options={({ navigation }: RootTabScreenProps<'HomeTab'>) => ({
           title: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="home" color={color} size={size} />
+          ),
         })}
       />
       <BottomTab.Screen
@@ -30,6 +33,9 @@ const BottomTabNavigator = () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         options={({ navigation }: RootTabScreenProps<'AccountTab'>) => ({
           title: 'Account',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="user" color={color} size={size} />
+          ),
         })}
       />
     </BottomTab.Navigator>

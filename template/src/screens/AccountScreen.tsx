@@ -15,6 +15,7 @@ export default function AccountScreen() {
         justifyContent="center"
         alignContent="center"
         alignItems="center"
+        height="100%"
       >
         <Text>Account Screen</Text>
         <Button

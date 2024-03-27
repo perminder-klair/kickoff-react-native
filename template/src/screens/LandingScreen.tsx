@@ -36,7 +36,7 @@ export default function LandingScreen({ navigation }: Props) {
       >
         <Box alignItems="center">
           <Text color="$white" size="6xl">
-            DKC
+            {config?.appName}
           </Text>
         </Box>
         <Box>

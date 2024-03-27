@@ -1,4 +1,5 @@
 import React from 'react';
+import { Alert } from 'react-native';
 
 import { Button, ButtonText, Text, VStack } from '@gluestack-ui/themed';
 
@@ -12,6 +13,7 @@ export default function HomeScreen() {
         justifyContent="center"
         alignContent="center"
         alignItems="center"
+        height="100%"
       >
         <Text>My Home Screen</Text>
         <Button
@@ -20,8 +22,11 @@ export default function HomeScreen() {
           action="primary"
           isDisabled={false}
           isFocusVisible={false}
+          onPress={() => {
+            Alert.alert('Button clicked!');
+          }}
         >
-          <ButtonText>Hello people!</ButtonText>
+          <ButtonText>Click me!</ButtonText>
         </Button>
       </VStack>
     </Layout>

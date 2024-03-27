@@ -3,8 +3,9 @@ import { capitalize } from 'lodash';
 import { FieldError } from 'react-hook-form';
 
 import {
+  // FormControlError,
+  Box,
   FormControl,
-  FormControlError,
   FormControlErrorText,
   FormControlHelper,
   FormControlHelperText,
@@ -34,6 +35,7 @@ const MyFormControl = ({
   isInvalid,
   ...props
 }: Props) => {
+  console.log('isInvalid', isInvalid);
   return (
     <FormControl {...props}>
       <VStack>
@@ -42,11 +44,16 @@ const MyFormControl = ({
         </FormControlLabel>
         {children}
         {isInvalid ? (
-          <FormControlError>
-            <FormControlErrorText color="red.600" size="xs" marginTop={-1}>
+          <Box height={18}>
+            <FormControlErrorText
+              color="$red400"
+              size="xs"
+              marginTop={-1}
+              lineHeight="$xs"
+            >
               {capitalize(isInvalid.message)}
             </FormControlErrorText>
-          </FormControlError>
+          </Box>
         ) : (
           <FormControlHelper>
             <FormControlHelperText>{helperMsg}</FormControlHelperText>

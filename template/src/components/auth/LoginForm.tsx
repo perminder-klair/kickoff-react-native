@@ -55,7 +55,7 @@ const LoginForm = ({ loading, onSubmit }: Props) => {
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
-  console.log('LoginForm errors', errors);
+  // console.log('LoginForm errors', errors);
 
   return (
     <KeyboardAvoidingView onTouchStart={() => Keyboard.dismiss()} width="90%">
@@ -64,7 +64,7 @@ const LoginForm = ({ loading, onSubmit }: Props) => {
           name="email"
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
-            <FormControl label="Email" isInvalid={errors.email} isRequired>
+            <FormControl label="Email" isInvalid={errors?.email} isRequired>
               <Input
                 type="text"
                 placeholder="john@doe.com"
@@ -87,7 +87,7 @@ const LoginForm = ({ loading, onSubmit }: Props) => {
             render={({ field: { onChange, onBlur, value } }) => (
               <FormControl
                 label="Password"
-                isInvalid={errors.password}
+                isInvalid={errors?.password}
                 isRequired
               >
                 <Input
@@ -105,7 +105,7 @@ const LoginForm = ({ loading, onSubmit }: Props) => {
             )}
           />
           <Text
-            mt={-12}
+            // mt={-12}
             fontSize="$sm"
             onPress={() => navigation.navigate('PasswordResetScreen')}
           >
