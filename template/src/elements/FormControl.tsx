@@ -35,7 +35,6 @@ const MyFormControl = ({
   isInvalid,
   ...props
 }: Props) => {
-  console.log('isInvalid', isInvalid);
   return (
     <FormControl {...props}>
       <VStack>

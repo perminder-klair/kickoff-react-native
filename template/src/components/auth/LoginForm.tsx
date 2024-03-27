@@ -35,14 +35,7 @@ export type Props = {
 const schema = yup
   .object({
     email: yup.string().required().email(),
-    password: yup
-      .string()
-      .required()
-      .matches(
-        // eslint-disable-next-line no-useless-escape
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-        'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character',
-      ),
+    password: yup.string().required(),
   })
   .required();
 

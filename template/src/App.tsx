@@ -10,6 +10,7 @@ import { GluestackUIProvider, Text } from '@gluestack-ui/themed';
 import useCachedResources from '@hooks/useCachedResources';
 import { queueLink } from '@utils/apollo-client';
 import { config as styles } from '@styles';
+import { Loading } from '@elements';
 
 LogBox.ignoreAllLogs();
 
@@ -32,7 +33,7 @@ function App() {
   }, []);
 
   if (!isLoadingComplete) {
-    return <Text>Loading...</Text>;
+    return <Loading />;
   }
 
   return (

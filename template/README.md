@@ -49,7 +49,7 @@ This is one way to run your app — you can also run it directly from within And
 - apollo-client (data fetching)
 - gluestack-ui (styling framework)
 - react-hook-form + yup (form management and validation)
-- moment, lodash and polished (helper libraries)
+- daysjs, lodash (helper libraries)
 - eslint and prettier (code formatting)
 
 ## Debug
@@ -64,3 +64,7 @@ watchman watch-del-all
 
 - [ ] Load custom fonts
 - [ ] Load splash screen
+- [ ] Image slider
+- [ ] DateTime picker
+- [ ] dayjs library
+- [ ] skeleton loading
