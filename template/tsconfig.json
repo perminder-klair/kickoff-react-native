@@ -1,0 +1,49 @@
+{
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": ".",
+    "jsx": "react",
+    "paths": {
+      // without `/*` for `folder/index.ts`
+      // with `/*` for accessing the nested folder.
+      "@src/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@elements/*": [
+        "./src/elements/*"
+      ],
+      "@elements": [
+        "./src/elements"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@navigation/*": [
+        "./src/navigation/*"
+      ],
+      "@navigation": [
+        "./src/navigation"
+      ],
+      "@/store/*": [
+        "./src/store/*"
+      ],
+      "@/store": [
+        "./src/store"
+      ],
+      "@styles": [
+        "./src/styles"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+    }
+  },
+  "ignorePatterns": [
+    "vendor",
+    ".eslintrc.js"
+  ]
+}

@@ -1,8 +1,8 @@
 {
-  "name": "react-native-new-template",
-  "version": "0.0.5",
+  "name": "react-native-boilerplate",
+  "version": "0.0.1",
   "description": "React Native Template",
-  "repository": "git@github.com:Esemesek/react-native-new-template.git",
-  "author": "Kacper Wiszczuk <kacperwiszczuk@gmail.com>",
+  "repository": "git@bitbucket.org:builtbypixel/react-native-boilerplate.git",
+  "author": "Parminder Klair <parminder@builtbypixel.com>",
   "license": "MIT"
 }
