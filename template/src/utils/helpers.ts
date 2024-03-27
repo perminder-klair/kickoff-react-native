@@ -1,3 +1,11 @@
+import dayjs from 'dayjs';
+import isLeapYear from 'dayjs/plugin/isLeapYear'; // import plugin
+
+import 'dayjs/locale/en-gb'; // import locale
+
+dayjs.extend(isLeapYear); // use plugin
+dayjs.locale('en-gb'); // use locale
+
 export const timeout = (ms: number) =>
   // eslint-disable-next-line no-promise-executor-return
   new Promise(resolve => setTimeout(resolve, ms));
@@ -11,4 +19,8 @@ export const makeId = (length: number) => {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
+};
+
+export const formatDate = (date: string, format: string = 'DD-MM-YYYY') => {
+  return dayjs(date).format(format);
 };

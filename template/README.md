@@ -62,9 +62,5 @@ watchman watch-del-all
 
 ## TODO
 
-- [ ] Load custom fonts
-- [ ] Load splash screen
 - [ ] Image slider
-- [ ] DateTime picker
-- [ ] dayjs library
 - [ ] skeleton loading
