@@ -54,6 +54,7 @@ const { Screen, Navigator } = createNativeStackNavigator<AppStackParamList>();
 const prefixes = ['https://my-app.co.uk', 'my-app://'];
 const config = {
   screens: {
+    // https://my-app.co.uk/dashboard
     DashboardScreen: 'dashboard',
   },
 };

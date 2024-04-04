@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Alert, LogBox } from 'react-native';
+import { Alert } from 'react-native';
 import { ApolloProvider } from '@apollo/client';
 import Navigation from '@navigation';
 import NetInfo, { type NetInfoState } from '@react-native-community/netinfo';
@@ -16,7 +16,12 @@ import { queueLink } from '@utils/apollo-client';
 import { config as styles } from '@styles';
 import { Loading } from '@elements';
 
-LogBox.ignoreAllLogs();
+if (__DEV__) {
+  // Load Reactotron configuration in development. We don't want to
+  // include this in our production bundle, so we are using `if (__DEV__)`
+  // to only execute this in development.
+  require('@utils/dev-tools');
+}
 
 function App() {
   const { isLoadingComplete, client } = useCachedResources();
