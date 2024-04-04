@@ -1,16 +1,27 @@
 import React, { useEffect } from 'react';
-import { RouteProp } from '@react-navigation/native';
+import { useColorScheme } from 'react-native';
+import {
+  createNavigationContainerRef,
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+  RouteProp,
+} from '@react-navigation/native';
 import {
   createNativeStackNavigator,
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import useAuth from '@hooks/useAuth';
+import { useNavigationPersistence } from '@navigation/navigationUtils';
+import * as storage from '@utils/storage';
+import { Loading } from '@elements';
 
 import { useStore } from '../store';
 import BottomTab from './BottomTab';
 import AuthNavigator from './stacks/AuthNavigator';
+
+export const NAVIGATION_PERSISTENCE_KEY = 'NAVIGATION_STATE';
 
 export type AppStackParamList = {
   splash: undefined;
@@ -31,16 +42,37 @@ export type AppStackRoutes = {
   >;
 };
 
+export interface NavigationProps
+  // eslint-disable-next-line prettier/prettier
+  extends Partial<React.ComponentProps<typeof NavigationContainer>> { }
+
+export const navigationRef = createNavigationContainerRef<AppStackParamList>();
+
 const { Screen, Navigator } = createNativeStackNavigator<AppStackParamList>();
 
-const AppStack = () => {
+// Web linking configuration
+const prefixes = ['https://my-app.co.uk', 'my-app://'];
+const config = {
+  screens: {
+    DashboardScreen: 'dashboard',
+  },
+};
+
+const AppNavigation = (props: NavigationProps) => {
+  const colorScheme = useColorScheme();
   const isLoggedIn = useStore(state => state.isLoggedIn);
   const { logout } = useAuth();
+
+  const {
+    initialNavigationState,
+    onNavigationStateChange,
+    isRestored: isNavigationStateRestored,
+  } = useNavigationPersistence(storage, NAVIGATION_PERSISTENCE_KEY);
 
   useEffect(() => {
     // on app load, if token does not exists, set isLoggedIn to false
     const checkIsLoggedIn = async () => {
-      const token = await AsyncStorage.getItem('token');
+      const token = await storage.loadString('token');
       if (!token) {
         logout();
       }
@@ -49,14 +81,33 @@ const AppStack = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // useBackButtonHandler(routeName => exitRoutes.includes(routeName));
+
+  // Before we show the app, we have to wait for our navigation state to be ready
+  if (!isNavigationStateRestored) return <Loading />;
+
+  const linking = {
+    prefixes,
+    config,
+  };
+
   return (
-    <Navigator screenOptions={{ headerShown: false }}>
-      <Screen
-        name="bottomTab"
-        component={isLoggedIn ? BottomTab : AuthNavigator}
-      />
-    </Navigator>
+    <NavigationContainer
+      ref={navigationRef}
+      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+      linking={linking}
+      initialState={initialNavigationState}
+      onStateChange={onNavigationStateChange}
+      {...props}
+    >
+      <Navigator screenOptions={{ headerShown: false }}>
+        <Screen
+          name="bottomTab"
+          component={isLoggedIn ? BottomTab : AuthNavigator}
+        />
+      </Navigator>
+    </NavigationContainer>
   );
 };
 
-export default AppStack;
+export default AppNavigation;

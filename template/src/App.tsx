@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
 import { Alert, LogBox } from 'react-native';
 import { ApolloProvider } from '@apollo/client';
-import { NavigationContainer } from '@react-navigation/native';
 import Navigation from '@navigation';
 import NetInfo, { type NetInfoState } from '@react-native-community/netinfo';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import {
+  initialWindowMetrics,
+  SafeAreaProvider,
+} from 'react-native-safe-area-context';
 
 import { GluestackUIProvider } from '@gluestack-ui/themed';
 
@@ -39,20 +42,19 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <NavigationContainer>
-        <Navigation />
-      </NavigationContainer>
+      <Navigation />
     </ApolloProvider>
   );
 }
 
 export default function Root() {
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <GluestackUIProvider config={styles}>
-        <App />
-      </GluestackUIProvider>
-    </GestureHandlerRootView>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <GluestackUIProvider config={styles}>
+          <App />
+        </GluestackUIProvider>
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
   );
 }

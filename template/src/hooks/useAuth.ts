@@ -1,5 +1,6 @@
 import { Alert } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import * as storage from '@utils/storage';
 
 import { useStore } from '../store';
 
@@ -21,7 +22,7 @@ export default function useAuth() {
     }
 
     // if success, store token in async storage
-    await AsyncStorage.setItem('token', token);
+    await storage.saveString('token', token);
 
     // if success, set isLoggedIn to true
     setUser(user);
@@ -33,7 +34,7 @@ export default function useAuth() {
     try {
       console.log('Logging out');
       // clear local storage
-      await AsyncStorage.clear();
+      await storage.clear();
     } catch (e) {
       console.log('Error logging out');
       Alert.alert('Error', 'Error logging out');

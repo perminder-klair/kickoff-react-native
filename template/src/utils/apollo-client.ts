@@ -13,6 +13,7 @@ import SerializingLink from 'apollo-link-serialize';
 import { AsyncStorageWrapper, CachePersistor } from 'apollo3-cache-persist';
 
 import config from '@utils/config';
+import * as storage from '@utils/storage';
 
 const cache = new InMemoryCache();
 export const queueLink = new QueueLink();
@@ -43,7 +44,7 @@ export const apolloPersistor = new CachePersistor({
 const httpLink = createHttpLink({
   uri: config?.graphqlUri,
   fetch: async (uri, options) => {
-    const token = await AsyncStorage.getItem('token');
+    const token = await storage.loadString('token');
     // console.log('token', token);
 
     const myOptions: any = { ...options };
